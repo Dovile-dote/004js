@@ -188,20 +188,23 @@ console.log(bendrasRaidziuMasyvas);
 console.log(unikaliosKombinacijos);
 
 console.log('Unikaliu kombinaciju: ' + unikaliosKombinacijos.length);
-let kazkas = 0;
-for (let i = 0; i < unikaliosKombinacijos.length; i++) {
-  //   if (bendrasRaidziuMasyvas.filter((v) => v == unikaliosKombinacijos[i])) {
-  //     kazkas++;
-  //   }
-  //   console.log(kazkas);
-  // for (let a = 0; a < bendrasRaidziuMasyvas.length; a++) {
-  //   if (unikaliosKombinacijos[i] === bendrasRaidziuMasyvas[a]) {
-  //     kazkas++;
-  //   }
-  // }
-  // console.log(unikaliosKombinacijos[i], kazkas);
-}
 
+let nesikartojanciosUnikaliosKombinacijos = 0;
+for (let i = 0; i < unikaliosKombinacijos.length; i++) {
+  let kazkas = 0;
+  for (let a = 0; a < bendrasRaidziuMasyvas.length; a++) {
+    if (unikaliosKombinacijos[i] === bendrasRaidziuMasyvas[a]) {
+      kazkas++;
+    }
+  }
+  if (kazkas === 1) {
+    nesikartojanciosUnikaliosKombinacijos++;
+  }
+}
+console.log(
+  'Unikalios, kurios kartojasi tik karta: ' +
+    nesikartojanciosUnikaliosKombinacijos
+);
 console.log('-----5-----');
 // Sugeneruokite du masyvus, kurių reikšmės yra atsitiktiniai skaičiai nuo 100 iki 999. Masyvų ilgiai 100. Masyvų reikšmės turi būti unikalios savo masyve (t.y. neturi kartotis).
 const masyvas1 = [];
@@ -253,6 +256,7 @@ for (let i = 0; i < masyvas1.length; i++) {
   }
 }
 console.log('Didziausias indeksas: ' + didziausiaPirmoMasyvoReiksme);
+
 for (let i = 0; i < didziausiaPirmoMasyvoReiksme; i++) {
   if (masyvas1.includes(i)) {
     for (let a = 0; a < masyvas2.length; a++) {

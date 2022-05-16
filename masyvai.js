@@ -155,11 +155,24 @@ console.log('-----16-----');
 // Į piniginės popierinių pinigų skyrelį įdėti 500 pinigų mažom kupiūrom ( generuoti atsitiktinius skaičius nuo 3 iki 10 ir dėti kaip naujus elementus, kol įdėta suma bus lygi 500);
 console.log(popieriniaiPinigai);
 let naujasPinigas;
-do {
+while (popieriniaiPinigai < 490) {
   naujasPinigas = rand(3, 10);
   pinigineSuDviemSkyriais[1].push(naujasPinigas);
   popieriniaiPinigai += naujasPinigas;
-} while (popieriniaiPinigai < 500);
+}
+
+// console.log(pinigineSuDviemSkyriais[1]);
+// console.log(popieriniaiPinigai);
+
+while (popieriniaiPinigai !== 500) {
+  naujasPinigas = rand(3, 10);
+  if (popieriniaiPinigai + naujasPinigas !== 500) {
+    naujasPinigas = 0;
+  } else {
+    popieriniaiPinigai += naujasPinigas;
+    pinigineSuDviemSkyriais[1].push(naujasPinigas);
+  }
+}
 console.log(pinigineSuDviemSkyriais[1]);
 console.log(popieriniaiPinigai);
 
